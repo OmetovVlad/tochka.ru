@@ -1,0 +1,22 @@
+// Шрифты
+@import "fonts";
+
+// Переменны (цвета, скорость transition и пр)
+@import "_variables";
+
+
+*{
+    outline: none;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    min-width: 320px;
+}
+
+a {
+    text-decoration: none;
+}
+
