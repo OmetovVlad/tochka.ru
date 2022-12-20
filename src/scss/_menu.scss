@@ -1,0 +1,209 @@
+@media (max-width: 991px) {
+  body {
+    transition: all $animation_speed;
+
+    &.open_menu {
+      overflow: hidden;
+      transform: translate(270px, 0);
+      .menu::before {
+        right: -20px;
+      }
+    }
+
+    .menu {
+      position: fixed;
+      width: 270px;
+      top: 0;
+      left: -270px;
+      bottom: 0;
+      background: $color06;
+      padding: 65px 27px 30px;
+      text-align: right;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 37px;
+        right: 0;
+        display: block;
+        border: 8px solid transparent;
+        border-left: 12px solid $color06;
+        transition: all $animation_speed;
+      }
+      .item {
+        padding: 15px;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.5;
+        .link {
+          position: relative;
+          &::after {
+            bottom: -2px;
+          }
+        }
+        .drop_down_link {
+          display: inline-block;
+          position: relative;
+          &::after {
+            bottom: -2px;
+            right: 0;
+          }
+        }
+        .drop_down_icon {
+          display: none;
+        }
+      }
+
+      .drop_down_menu {
+        display: none;
+        width: calc(100% + 27px * 2 + 15px * 2);
+        padding: 10px 27px;
+        background: $color02;
+        margin: 10px -42px 0;
+        &::after {
+          display: none;
+        }
+        &.active {
+          display: block;
+        }
+        .item {
+          padding: 10px 15px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+.menu {
+  &_wrapper {
+    @media (min-width: 992px) {
+      display: flex;
+      flex-wrap: wrap;
+      height: 24px;
+      position: relative;
+    }
+  }
+  .item {
+    position: relative;
+    & + .item {
+      @media (min-width: 1440px) {
+        margin-left: 70px;
+      }
+      @media (min-width: 1230px) {
+        margin-left: 40px;
+      }
+      @media (min-width: 992px) {
+        margin-left: 20px;
+      }
+    }
+  }
+  .link,
+  .drop_down_link
+  {
+    font-weight: 400;
+    line-height: 1.5;
+    text-transform: uppercase;
+    color: $color04;
+    cursor: pointer;
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      height: 1px;
+      bottom: 4px;
+      left: 0;
+      right: 0;
+      background: $color05;
+      opacity: 0;
+      @media (min-width: 992px) {
+        transition: all $animation_speed;
+      }
+    }
+    @media (min-width: 992px) {
+      transition: all $animation_speed;
+      &:hover {
+        color: $color05;
+      }
+    }
+    &.active {
+      color: $color05;
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+
+  .drop_down_link {
+    display: flex;
+    flex-wrap: wrap;
+    &::after {
+      right: 24px;
+    }
+    .drop_down_icon {
+      width: 10px;
+      height: 24px;
+      margin-left: 14px;
+      transform: rotate(180deg);
+      transition: all $animation_speed;
+    }
+    &.active {
+      .drop_down_icon {
+        transform: rotate(0deg);
+      }
+    }
+  }
+  @media (min-width: 992px) {
+    .drop_down_menu {
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+      top: 166px;
+      width: 344px;
+      padding: 24px 19px;
+      background: $color02;
+      @media (min-width: 992px) {
+        transition: all $animation_speed;
+      }
+
+      &.active {
+        top: 66px;
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .item {
+        display: flex;
+
+        .link {
+          padding: 5px 16px 7px;
+          text-transform: initial;
+          display: block;
+          line-height: 28px;
+          width: 100%;
+
+          &::after {
+            display: none;
+          }
+
+          &.active {
+            background: $color05;
+            color: $color02;
+
+            &:hover {
+              color: $color02;
+            }
+          }
+        }
+
+        & + .item {
+          margin-left: 0;
+          margin-top: 5px;
+
+          .link {
+
+          }
+        }
+      }
+    }
+  }
+}

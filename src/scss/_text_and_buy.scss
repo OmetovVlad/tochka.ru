@@ -1,0 +1,35 @@
+.text_and_buy {
+  padding-top: 76px;
+  padding-bottom: 58px;
+  @media (min-width: 992px) {
+    padding-top: 87px;
+    padding-bottom: 90px;
+  }
+  .text {
+    position: relative;
+    z-index: 3;
+    margin-left: auto;
+    @media (min-width: 992px) {
+      width: 50%;
+    }
+    p {
+      margin: 0;
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 1.65;
+      @media (min-width: 992px) {
+        font-size: 20px;
+        line-height: 1.8;
+      }
+    }
+    .button {
+      margin-top: 25px;
+      width: 100%;
+      text-align: center;
+      @media (min-width: 768px) {
+        margin-top: 35px;
+        width: auto;
+      }
+    }
+  }
+}

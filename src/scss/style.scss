@@ -4,6 +4,12 @@
 // Переменны (цвета, скорость transition и пр)
 @import "_variables";
 
+// Блоки
+@import "_header";
+@import "_menu";
+@import "_slider";
+@import "_text_and_buy";
+
 
 *{
     outline: none;
@@ -14,9 +20,102 @@ body{
     margin: 0;
     padding: 0;
     min-width: 320px;
+    font-family: $main_font;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.5;
+    background: $color01;
+    color: $color07;
+    @media (min-width: 1230px) {
+        font-size: 16px;
+    }
 }
 
 a {
     text-decoration: none;
+}
+
+main {
+    position: relative;
+    z-index: 2;
+}
+
+h3 {
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    position: relative;
+    padding-left: 22px;
+    padding-right: 22px;
+    margin: 0 auto;
+    @media (min-width: 1440px) {
+        max-width: calc(1344px + 22px * 2);
+    }
+    @media (min-width: 1230px) {
+        max-width: 1200px;
+    }
+    @media (min-width: 992px) {
+        max-width: 960px;
+    }
+    @media (min-width: 768px) {
+        max-width: 720px;
+    }
+    @media (min-width: 576px) {
+        max-width: 540px;
+    }
+}
+
+.button {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 30px;
+    display: inline-block;
+    padding: 11px 40px;
+    text-transform: uppercase;
+    font-family: Bitter;
+    @media (min-width: 992px) {
+        transition: all $animation_speed;
+        &:hover {
+            padding-left: 50px;
+            padding-right: 30px;
+        }
+    }
+    &--light {
+        color: $color05;
+        background: $color06;
+    }
+    &--dark {
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: $color02;
+        background: $color05;
+        padding-left: 44px;
+        padding-right: 44px;
+        @media (min-width: 992px) {
+            &:hover {
+                padding-left: 54px;
+                padding-right: 34px;
+            }
+        }
+    }
+}
+
+.rectangle {
+    &-top {
+        &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 0;
+            top: -23px;
+            width: 0;
+            height: 0;
+            border: 12px solid transparent;
+            border-left: 11px solid $color02;
+            border-bottom: 11px solid $color02;
+        }
+    }
 }
 
